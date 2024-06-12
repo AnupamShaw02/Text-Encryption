@@ -1,0 +1,30 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple AES Encryption/Decryption</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Encrypt & Decrypt Text</h1>
+    <form method="POST" action="/">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text" required>
+        <label for="key">Key (16 characters):</label>
+        <input type="text" id="key" name="key" required pattern=".{16,16}" title="Key must be exactly 16 characters long">
+        <label for="action">Action:</label>
+        <select id="action" name="action" required>
+            <option value="encrypt">Encrypt</option>
+            <option value="decrypt">Decrypt</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result %}
+    <h2>Result:</h2>
+    <textarea readonly>{{ result }}</textarea>
+    {% endif %}
+</body>
+</html>
